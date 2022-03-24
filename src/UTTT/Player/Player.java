@@ -8,6 +8,7 @@ public abstract class Player {
 
     protected int playerCode;
     protected String name;
+    protected String playerType;
 
     public Player(int pc) {
         this.playerCode = pc;

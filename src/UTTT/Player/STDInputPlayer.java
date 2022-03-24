@@ -13,7 +13,7 @@ public class STDInputPlayer extends Player {
 
     @Override
     public int[] getMove(Board board, ArrayList<int[]> moves) {
-        System.out.println("What is your next move? (provide an integer for the slot number)");
+        System.out.println("What is your next move? (provide the integers for the slot numbers in an array like \"2\" or \"3,5\")");
         Scanner in = new Scanner(System.in);
         String input = in.nextLine();
         try {

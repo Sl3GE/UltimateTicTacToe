@@ -9,7 +9,7 @@ public class UltimateTTTTest {
     public static void main(String[] args) {
 //        Player p1 = new BasicPlayer(1);
         Player p1 = new RandomPlayer(1);
-        Player p2 = new RandomPlayer(2);
+        Player p2 = new STDInputPlayer(2);
         UTTTGame game = new UTTTGame(p1,p2);
 //        game.display();
         boolean gameOver = false;

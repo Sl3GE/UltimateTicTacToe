@@ -93,7 +93,7 @@ public class MainBoard extends Board {
                 targetSlot = move[0];
         }
         if (moveLength == 1) {
-            if (this.activeSlot != -1)
+            if (this.activeSlot == -1)
                 return false;
             else
                 targetSlot = this.activeSlot;
