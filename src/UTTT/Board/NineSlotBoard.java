@@ -13,6 +13,7 @@ public class NineSlotBoard extends Board {
         this.boardType = "NineSlotBoard";
     }
 
+    @Override
     public void displayBoard() {
         String result = "";
         for (int i = 0; i < 2; i++) {
@@ -42,13 +43,14 @@ public class NineSlotBoard extends Board {
         return true;
     }
 
+    @Override
     public int findBoardWinner() {
         if (this.winner != 0)
             return this.winner;
         for (int i = 0; i < 3; i++) {
             int mult = i*3;
             if (this.slots[mult] != 0 && this.slots[mult] == this.slots[mult+1] && this.slots[mult+1] == this.slots[mult+2])
-                return slots[i*3];
+                return slots[mult];
             if (this.slots[i] != 0 && slots[i] == this.slots[i+3] && this.slots[i+3] == this.slots[i+6])
                 return slots[i];
         }

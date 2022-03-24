@@ -39,7 +39,7 @@ public class TTTGame {
     }
 
     public void display() {
-        ((NineSlotBoard) this.board).displayBoard();
+        this.board.displayBoard();
     }
 
     public void nextMove() {
@@ -53,7 +53,7 @@ public class TTTGame {
     }
 
     public boolean isGameOver() {
-        if (((NineSlotBoard) this.board).findBoardWinner() != 0)
+        if (this.board.findBoardWinner() != 0)
             return true;
         for (int slot : ((NineSlotBoard) this.board).getSlots()) {
             if (slot == 0)
