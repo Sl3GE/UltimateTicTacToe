@@ -2,6 +2,7 @@ package UTTT.Board;
 
 public class MainBoard extends Board {
     private NineSlotBoard[] slots;
+    private int activeSlot;
 
     public MainBoard() {
         this.slots = new NineSlotBoard[9];
@@ -18,13 +19,13 @@ public class MainBoard extends Board {
         this.boardType = "MainBoard";
     }
 
-    public NineSlotBoard[] getSlots() {
-        return this.slots;
-    }
-
-    public NineSlotBoard getSlot(int slot) {
-        return this.slots[slot];
-    }
+//    public NineSlotBoard[] getSlots() {
+//        return this.slots;
+//    }
+//
+//    public NineSlotBoard getSlot(int slot) {
+//        return this.slots[slot];
+//    }
 
     /**
      * Requires more work!!
@@ -56,6 +57,27 @@ public class MainBoard extends Board {
                 return this.slots[0].findBoardWinner();
         }
         return 0;
+    }
+
+    @Override
+    public boolean updateSlot(int[] move, int playerCode) {
+        int moveLength = move.length;
+        if (this.winner != 0 || moveLength > 2 || moveLength == 0)
+            return false;
+        if (moveLength == 2) {
+            if (this.activeSlot != -1 && this.activeSlot != move[0])
+                return false;
+        }
+        if (moveLength == 1 && this.activeSlot != -1)
+            return false;
+        boolean result = this.slots[this.activeSlot].updateSlot(new int[]{move[-1]},playerCode);
+        if (result) {
+            if (moveLength == 2)
+                this.activeSlot = move[1];
+            else
+                this.activeSlot = move[0];
+        }
+        return result;
     }
 
     @Override

@@ -25,7 +25,7 @@ public class TTTGame {
 
     private void makeMove(int[] move, int playerCode) {
         if (move.length == 1)
-            ((NineSlotBoard) this.board).setSlot(move[0],playerCode);
+            ((NineSlotBoard) this.board).updateSlot(move,playerCode);
     }
 
     private ArrayList<int[]> getAvailableMoves() {

@@ -33,10 +33,15 @@ public class NineSlotBoard extends Board {
         return this.slots;
     }
 
-    public boolean setSlot(int slot, int p) {
-        if (this.winner != 0 || this.slots[slot] != 0)
+//    public int getSlot(int slot) {
+//        return this.slots[slot];
+//    }
+
+    @Override
+    public boolean updateSlot(int[] move, int playerCode) {
+        if (this.winner != 0 || this.slots[move[0]] != 0)
             return false;
-        this.slots[slot] = p;
+        this.slots[move[0]] = playerCode;
         int w = findBoardWinner();
         if (w != 0)
             this.winner = w;

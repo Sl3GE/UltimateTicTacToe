@@ -10,6 +10,8 @@ public abstract class Board {
 
     public abstract int findBoardWinner();
 
+    public abstract boolean updateSlot(int[] move, int playerCode);
+
     public int getWinner() {
         return this.winner;
     }
