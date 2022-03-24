@@ -23,79 +23,36 @@ public class MainBoard extends Board {
 
     @Override
     public void displayBoard() {
-        int[] board1Slots;
-        int[] board2Slots;
-        int[] board3Slots;
-        String result = "";
         for (int i = 0; i < 2; i++) {
-            board1Slots = this.slots[i*3].getSlots();
-            board2Slots = this.slots[i*3 + 1].getSlots();
-            board3Slots = this.slots[i*3 + 2].getSlots();
-            for (int k = 0; k < 2; k++) {
-                for (int j = 0; j < 2; j++) {
-                    result += board1Slots[(k * 3) + j] + "|";
-                }
-                result += board1Slots[2 + (k*3)] + " || ";
-                for (int j = 0; j < 2; j++) {
-                    result += board2Slots[(k * 3) + j] + "|";
-                }
-                result += board2Slots[2 + (k*3)] + " || ";
-                for (int j = 0; j < 2; j++) {
-                    result += board3Slots[(k * 3) + j] + "|";
-                }
-                result += board3Slots[2 + (k*3)];
-                System.out.println(result);
-                result = "";
-                System.out.println("-+-+- || -+-+- || -+-+-");
-            }
-            for (int j = 0; j < 2; j++) {
-                result += board1Slots[6 + j] + "|";
-            }
-            result += board1Slots[2 + 6] + " || ";
-            for (int j = 0; j < 2; j++) {
-                result += board2Slots[6 + j] + "|";
-            }
-            result += board2Slots[2 + 6] + " || ";
-            for (int j = 0; j < 2; j++) {
-                result += board3Slots[6 + j] + "|";
-            }
-            result += board3Slots[2 + 6];
-            System.out.println(result);
-            result = "";
+            printRowOfBoards(i);
             System.out.println("=======================");
         }
-        board1Slots = this.slots[6].getSlots();
-        board2Slots = this.slots[7].getSlots();
-        board3Slots = this.slots[8].getSlots();
+        printRowOfBoards(2);
+    }
+    private void printRowOfBoards(int i) {
+        int[] board1Slots = this.slots[i*3].getSlots();
+        int[] board2Slots = this.slots[i*3 + 1].getSlots();
+        int[] board3Slots = this.slots[i*3 + 2].getSlots();
         for (int k = 0; k < 2; k++) {
-            for (int j = 0; j < 2; j++) {
-                result += board1Slots[(k * 3) + j] + "|";
-            }
-            result += board1Slots[2 + (k*3)] + " || ";
-            for (int j = 0; j < 2; j++) {
-                result += board2Slots[(k * 3) + j] + "|";
-            }
-            result += board2Slots[2 + (k*3)] + " || ";
-            for (int j = 0; j < 2; j++) {
-                result += board3Slots[(k * 3) + j] + "|";
-            }
-            result += board3Slots[2 + (k*3)];
-            System.out.println(result);
-            result = "";
+            printSingleRowOfRowOfBoards(k,board1Slots,board2Slots,board3Slots);
             System.out.println("-+-+- || -+-+- || -+-+-");
         }
+        printSingleRowOfRowOfBoards(2,board1Slots,board2Slots,board3Slots);
+    }
+    private void printSingleRowOfRowOfBoards(int k, int[] b1, int[] b2, int[] b3) {
+        String result = "";
         for (int j = 0; j < 2; j++) {
-            result += board1Slots[6 + j] + "|";
+            result += b1[(k * 3) + j] + "|";
         }
-        result += board1Slots[2 + 6] + " || ";
+        result += b1[2 + (k*3)] + " || ";
         for (int j = 0; j < 2; j++) {
-            result += board2Slots[6 + j] + "|";
+            result += b2[(k * 3) + j] + "|";
         }
-        result += board2Slots[2 + 6] + " || ";
+        result += b2[2 + (k*3)] + " || ";
         for (int j = 0; j < 2; j++) {
-            result += board3Slots[6 + j] + "|";
+            result += b3[(k * 3) + j] + "|";
         }
-        result += board3Slots[2 + 6];
+        result += b3[2 + (k*3)];
         System.out.println(result);
     }
 
