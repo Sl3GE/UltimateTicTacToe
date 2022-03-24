@@ -1,5 +1,7 @@
 package UTTT.Board;
 
+import java.util.ArrayList;
+
 public class NineSlotBoard extends Board {
     private int[] slots;
 
@@ -33,13 +35,20 @@ public class NineSlotBoard extends Board {
         return this.slots;
     }
 
-//    public int getSlot(int slot) {
-//        return this.slots[slot];
-//    }
+    public ArrayList<int[]> getAvailableMoves() {
+        if (this.winner != 0)
+            return new ArrayList<>();
+        ArrayList<int[]> moves = new ArrayList<>();
+        for (int i = 0; i < this.slots.length; i++) {
+            if (this.slots[i] == 0)
+                moves.add(new int[]{i});
+        }
+        return moves;
+    }
 
     @Override
     public boolean updateSlot(int[] move, int playerCode) {
-        if (this.winner != 0 || this.slots[move[0]] != 0)
+        if (this.winner != 0 || move.length != 1 || this.slots[move[0]] != 0)
             return false;
         this.slots[move[0]] = playerCode;
         int w = findBoardWinner();
@@ -66,6 +75,17 @@ public class NineSlotBoard extends Board {
                 return this.slots[0];
         }
         return 0;
+    }
+
+    @Override
+    public boolean isBoardComplete() {
+        if (this.findBoardWinner() != 0)
+            return true;
+        for (int slot : this.slots) {
+            if (slot == 0)
+                return false;
+        }
+        return true;
     }
 
     @Override

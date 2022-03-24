@@ -1,5 +1,7 @@
 package UTTT.Board;
 
+import java.util.ArrayList;
+
 public abstract class Board {
     protected String boardType;
     protected int winner;
@@ -11,6 +13,10 @@ public abstract class Board {
     public abstract int findBoardWinner();
 
     public abstract boolean updateSlot(int[] move, int playerCode);
+
+    public abstract boolean isBoardComplete();
+
+    public abstract ArrayList<int[]> getAvailableMoves();
 
     public int getWinner() {
         return this.winner;

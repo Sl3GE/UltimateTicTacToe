@@ -30,4 +30,11 @@ public abstract class Player {
     }
 
     public abstract  int[] getMove(Board board, ArrayList<int[]> moves);
+
+    public void display() {
+        if (this.name != null) {
+            System.out.println("Name: " + this.name);
+        }
+        System.out.println("Player Code: " + this.playerCode);
+    }
 }

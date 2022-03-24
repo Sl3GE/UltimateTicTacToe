@@ -1,5 +1,7 @@
 package UTTT.Board;
 
+import java.util.ArrayList;
+
 public class MainBoard extends Board {
     private NineSlotBoard[] slots;
     private int activeSlot;
@@ -19,20 +21,82 @@ public class MainBoard extends Board {
         this.boardType = "MainBoard";
     }
 
-//    public NineSlotBoard[] getSlots() {
-//        return this.slots;
-//    }
-//
-//    public NineSlotBoard getSlot(int slot) {
-//        return this.slots[slot];
-//    }
-
-    /**
-     * Requires more work!!
-     */
     @Override
     public void displayBoard() {
-        System.out.println("Add a display!!");
+        int[] board1Slots;
+        int[] board2Slots;
+        int[] board3Slots;
+        String result = "";
+        for (int i = 0; i < 2; i++) {
+            board1Slots = this.slots[i*3].getSlots();
+            board2Slots = this.slots[i*3 + 1].getSlots();
+            board3Slots = this.slots[i*3 + 2].getSlots();
+            for (int k = 0; k < 2; k++) {
+                for (int j = 0; j < 2; j++) {
+                    result += board1Slots[(k * 3) + j] + "|";
+                }
+                result += board1Slots[2 + (k*3)] + " || ";
+                for (int j = 0; j < 2; j++) {
+                    result += board2Slots[(k * 3) + j] + "|";
+                }
+                result += board2Slots[2 + (k*3)] + " || ";
+                for (int j = 0; j < 2; j++) {
+                    result += board3Slots[(k * 3) + j] + "|";
+                }
+                result += board3Slots[2 + (k*3)];
+                System.out.println(result);
+                result = "";
+                System.out.println("-+-+- || -+-+- || -+-+-");
+            }
+            for (int j = 0; j < 2; j++) {
+                result += board1Slots[6 + j] + "|";
+            }
+            result += board1Slots[2 + 6] + " || ";
+            for (int j = 0; j < 2; j++) {
+                result += board2Slots[6 + j] + "|";
+            }
+            result += board2Slots[2 + 6] + " || ";
+            for (int j = 0; j < 2; j++) {
+                result += board3Slots[6 + j] + "|";
+            }
+            result += board3Slots[2 + 6];
+            System.out.println(result);
+            result = "";
+            System.out.println("=======================");
+        }
+        board1Slots = this.slots[6].getSlots();
+        board2Slots = this.slots[7].getSlots();
+        board3Slots = this.slots[8].getSlots();
+        for (int k = 0; k < 2; k++) {
+            for (int j = 0; j < 2; j++) {
+                result += board1Slots[(k * 3) + j] + "|";
+            }
+            result += board1Slots[2 + (k*3)] + " || ";
+            for (int j = 0; j < 2; j++) {
+                result += board2Slots[(k * 3) + j] + "|";
+            }
+            result += board2Slots[2 + (k*3)] + " || ";
+            for (int j = 0; j < 2; j++) {
+                result += board3Slots[(k * 3) + j] + "|";
+            }
+            result += board3Slots[2 + (k*3)];
+            System.out.println(result);
+            result = "";
+            System.out.println("-+-+- || -+-+- || -+-+-");
+        }
+        for (int j = 0; j < 2; j++) {
+            result += board1Slots[6 + j] + "|";
+        }
+        result += board1Slots[2 + 6] + " || ";
+        for (int j = 0; j < 2; j++) {
+            result += board2Slots[6 + j] + "|";
+        }
+        result += board2Slots[2 + 6] + " || ";
+        for (int j = 0; j < 2; j++) {
+            result += board3Slots[6 + j] + "|";
+        }
+        result += board3Slots[2 + 6];
+        System.out.println(result);
     }
 
     /**
@@ -62,22 +126,65 @@ public class MainBoard extends Board {
     @Override
     public boolean updateSlot(int[] move, int playerCode) {
         int moveLength = move.length;
+        int targetSlot = 0;
         if (this.winner != 0 || moveLength > 2 || moveLength == 0)
             return false;
         if (moveLength == 2) {
             if (this.activeSlot != -1 && this.activeSlot != move[0])
                 return false;
+            else
+                targetSlot = move[0];
         }
-        if (moveLength == 1 && this.activeSlot != -1)
-            return false;
-        boolean result = this.slots[this.activeSlot].updateSlot(new int[]{move[-1]},playerCode);
+        if (moveLength == 1) {
+            if (this.activeSlot != -1)
+                return false;
+            else
+                targetSlot = this.activeSlot;
+        }
+        boolean result = this.slots[targetSlot].updateSlot(new int[]{move[moveLength-1]},playerCode);
         if (result) {
             if (moveLength == 2)
                 this.activeSlot = move[1];
             else
                 this.activeSlot = move[0];
+            if (this.slots[this.activeSlot].isBoardComplete())
+                this.activeSlot = -1;
         }
         return result;
+    }
+
+    @Override
+    public boolean isBoardComplete() {
+        if (this.findBoardWinner() != 0)
+            return true;
+        for (NineSlotBoard slot : this.slots) {
+            if (!slot.isBoardComplete())
+                return false;
+        }
+        return true;
+    }
+
+    @Override
+    public ArrayList<int[]> getAvailableMoves() {
+        if (this.winner != 0)
+            return new ArrayList<>();
+        if (this.activeSlot != -1) {
+            ArrayList<int[]> slotMoves = this.slots[this.activeSlot].getAvailableMoves();
+            for (int i = 0; i < slotMoves.size(); i++) {
+                slotMoves.set(i, new int[]{this.activeSlot, slotMoves.get(i)[0]});
+            }
+            return slotMoves;
+        } else {
+            ArrayList<int[]> slotMoves = new ArrayList<>();
+            for (int i = 0; i < 9; i++) {
+                ArrayList<int[]> tempSlotMoves = this.slots[i].getAvailableMoves();
+                for (int j = 0; j < tempSlotMoves.size(); j++) {
+                    tempSlotMoves.set(j, new int[]{i, tempSlotMoves.get(j)[0]});
+                }
+                slotMoves.addAll(tempSlotMoves);
+            }
+            return slotMoves;
+        }
     }
 
     @Override

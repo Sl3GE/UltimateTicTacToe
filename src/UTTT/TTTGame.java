@@ -11,6 +11,7 @@ public class TTTGame {
     protected Player player1;
     protected Player player2;
     protected Player currentPlayer;
+    protected int moveCount;
 
     public TTTGame(Player p1, Player p2) {
         this(p1,p2,new NineSlotBoard());
@@ -24,26 +25,20 @@ public class TTTGame {
     }
 
     private void makeMove(int[] move, int playerCode) {
-        if (move.length == 1)
-            ((NineSlotBoard) this.board).updateSlot(move,playerCode);
-    }
-
-    private ArrayList<int[]> getAvailableMoves() {
-        ArrayList<int[]> moves = new ArrayList<>();
-        int[] slots = ((NineSlotBoard) this.board).getSlots();
-        for (int i = 0; i < slots.length; i++) {
-            if (slots[i] == 0)
-                moves.add(new int[]{i});
-        }
-        return moves;
+        this.board.updateSlot(move,playerCode);
+        this.moveCount += 1;
     }
 
     public void display() {
+        System.out.println("Move: " + moveCount);
+        System.out.println("Player with next move:");
+        this.currentPlayer.display();
+        System.out.println("Board:");
         this.board.displayBoard();
     }
 
     public void nextMove() {
-        ArrayList<int[]> moves = this.getAvailableMoves();
+        ArrayList<int[]> moves = this.board.getAvailableMoves();
         if (moves.size() > 0)
             this.makeMove(this.currentPlayer.getMove(this.board,moves), this.currentPlayer.getPlayerCode());
         if (this.currentPlayer == player1)
@@ -53,12 +48,6 @@ public class TTTGame {
     }
 
     public boolean isGameOver() {
-        if (this.board.findBoardWinner() != 0)
-            return true;
-        for (int slot : ((NineSlotBoard) this.board).getSlots()) {
-            if (slot == 0)
-                return false;
-        }
-        return true;
+        return this.board.isBoardComplete();
     }
 }
