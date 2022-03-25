@@ -63,16 +63,20 @@ public class NineSlotBoard extends Board {
             return this.winner;
         for (int i = 0; i < 3; i++) {
             int mult = i*3;
-            if (this.slots[mult] != 0 && this.slots[mult] == this.slots[mult+1] && this.slots[mult+1] == this.slots[mult+2])
-                return slots[mult];
-            if (this.slots[i] != 0 && slots[i] == this.slots[i+3] && this.slots[i+3] == this.slots[i+6])
-                return slots[i];
+            if (this.slots[mult] != 0 && this.slots[mult] == this.slots[mult+1] && this.slots[mult+1] == this.slots[mult+2]) {
+                this.winner = slots[mult];
+                return this.winner;
+            }
+            if (this.slots[i] != 0 && slots[i] == this.slots[i+3] && this.slots[i+3] == this.slots[i+6]) {
+                this.winner = slots[i];
+                return this.winner;
+            }
         }
         if (this.slots[4] != 0) {
-            if (this.slots[0] == this.slots[4] && this.slots[4] == this.slots[8])
-                return slots[0];
-            if (this.slots[2] == this.slots[4] && this.slots[4] == this.slots[6])
-                return this.slots[0];
+            if ((this.slots[0] == this.slots[4] && this.slots[4] == this.slots[8]) || (this.slots[2] == this.slots[4] && this.slots[4] == this.slots[6])) {
+                this.winner = slots[4];
+                return this.winner;
+            }
         }
         return 0;
     }
