@@ -9,9 +9,11 @@ public class RandomPlayer extends Player {
 
     public RandomPlayer(int pc) {
         super(pc);
+        this.playerType = "RandomPlayer";
     }
 
-    public int[] getMove(Board board, ArrayList<int[]> moves) {
+    public int[] getMove(Board board) {
+        ArrayList<int[]> moves = board.getAvailableMoves();
         if (moves.size() == 0)
             return null;
         Random random = new Random();

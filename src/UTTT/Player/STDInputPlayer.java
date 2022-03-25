@@ -2,17 +2,17 @@ package UTTT.Player;
 
 import UTTT.Board.Board;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class STDInputPlayer extends Player {
 
     public STDInputPlayer(int pc) {
         super(pc);
+        this.playerType = "STDInputPlayer";
     }
 
     @Override
-    public int[] getMove(Board board, ArrayList<int[]> moves) {
+    public int[] getMove(Board board) {
         System.out.println("What is your next move? (provide the integers for the slot numbers in an array like \"2\" or \"3,5\")");
         Scanner in = new Scanner(System.in);
         String input = in.nextLine();

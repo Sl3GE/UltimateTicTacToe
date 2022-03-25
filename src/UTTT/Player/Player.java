@@ -2,8 +2,6 @@ package UTTT.Player;
 
 import UTTT.Board.Board;
 
-import java.util.ArrayList;
-
 public abstract class Player {
 
     protected int playerCode;
@@ -30,7 +28,7 @@ public abstract class Player {
         this.name = name;
     }
 
-    public abstract  int[] getMove(Board board, ArrayList<int[]> moves);
+    public abstract  int[] getMove(Board board);
 
     public void display() {
         if (this.name != null) {

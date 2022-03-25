@@ -38,9 +38,9 @@ public class TTTGame {
     }
 
     public void nextMove() {
-        ArrayList<int[]> moves = this.board.getAvailableMoves();
-        if (moves.size() > 0)
-            this.makeMove(this.currentPlayer.getMove(this.board,moves), this.currentPlayer.getPlayerCode());
+        int[] move = this.currentPlayer.getMove(this.board);
+        if (move != null)
+            this.makeMove(move, this.currentPlayer.getPlayerCode());
         if (this.currentPlayer == player1)
             this.currentPlayer = player2;
         else
@@ -49,5 +49,16 @@ public class TTTGame {
 
     public boolean isGameOver() {
         return this.board.isBoardComplete();
+    }
+
+    public void displayWinner() {
+        int wpc = this.board.findBoardWinner();
+        if (wpc == 0)
+            return;
+        System.out.println("\nWinner of the game is:");
+        if (wpc == this.player1.getPlayerCode())
+            this.player1.display();
+        else
+            this.player2.display();
     }
 }
