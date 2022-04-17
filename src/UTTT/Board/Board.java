@@ -10,6 +10,10 @@ public abstract class Board {
 
     public abstract Board deepCopy();
 
+    /**
+     *
+     * @return int value representing the playerCode of the winner of the board. If there is no winner, it returns "0".
+     */
     public abstract int findBoardWinner();
 
     public abstract boolean updateSlot(int[] move, int playerCode);

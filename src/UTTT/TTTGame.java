@@ -61,4 +61,9 @@ public class TTTGame {
         else
             this.player2.display();
     }
+
+    public Player getWinner() {
+        int winner = this.board.findBoardWinner();
+        return winner == player1.getPlayerCode() ? player1 : (winner == player2.getPlayerCode() ? player2 : null);
+    }
 }

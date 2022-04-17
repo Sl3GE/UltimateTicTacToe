@@ -56,6 +56,10 @@ public class MainBoard extends Board {
         System.out.println(result);
     }
 
+    public void setActiveSlot(int slot) {
+        this.activeSlot = slot;
+    }
+
     /**
      * Requires more work!!
      */
@@ -150,6 +154,8 @@ public class MainBoard extends Board {
         for (int i = 0; i < 9; i++) {
             newSlots[i] = this.slots[i].deepCopy();
         }
-        return new MainBoard(newSlots,this.winner);
+        MainBoard newBoard = new MainBoard(newSlots,this.winner);
+        newBoard.setActiveSlot(this.activeSlot);
+        return newBoard;
     }
 }

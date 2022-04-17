@@ -2,6 +2,8 @@ package UTTT.Player;
 
 import UTTT.Board.Board;
 
+import java.util.Objects;
+
 public abstract class Player {
 
     protected int playerCode;
@@ -35,5 +37,18 @@ public abstract class Player {
             System.out.println("Name: " + this.name);
         }
         System.out.println("Player Code: " + this.playerCode);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Player player = (Player) o;
+        return playerCode == player.playerCode;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(playerCode);
     }
 }
