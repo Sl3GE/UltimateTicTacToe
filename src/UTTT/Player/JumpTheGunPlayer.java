@@ -4,9 +4,9 @@ import UTTT.Board.Board;
 
 import java.util.ArrayList;
 
-public class BasicPlayer extends Player {
+public class JumpTheGunPlayer extends Player {
 
-    public BasicPlayer(int pc) {
+    public JumpTheGunPlayer(int pc) {
         super(pc);
         this.playerType = "BasicPlayer";
     }

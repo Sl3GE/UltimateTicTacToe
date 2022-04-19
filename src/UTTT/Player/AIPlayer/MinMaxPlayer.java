@@ -5,7 +5,7 @@ import UTTT.Player.Player;
 
 import java.util.ArrayList;
 
-public class MinMaxPlayer extends Player {
+abstract class MinMaxPlayer extends Player {
     protected static Double infinity = 1000.0;
 
     private int minMaxDepth;
@@ -68,12 +68,5 @@ public class MinMaxPlayer extends Player {
         return minMVC;
     }
 
-    private Double evaluateBoard(Board board) {
-        int winner = board.findBoardWinner();
-        if (winner == this.playerCode)
-            return infinity;
-        if (winner != 0)
-            return -infinity;
-        return 0.0;
-    }
+    public abstract Double evaluateBoard(Board board);
 }

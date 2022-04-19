@@ -56,6 +56,10 @@ public class MainBoard extends Board {
         System.out.println(result);
     }
 
+    public NineSlotBoard[] getSlots() {
+        return slots;
+    }
+
     public void setActiveSlot(int slot) {
         this.activeSlot = slot;
     }
