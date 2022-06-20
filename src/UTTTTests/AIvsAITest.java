@@ -6,15 +6,19 @@ import UTTT.Player.Player;
 import UTTT.Player.RandomPlayer;
 import UTTT.UTTTGame;
 
+import java.util.Date;
+
 public class AIvsAITest {
 
     public static void main(String[] args) {
-        Player p1 = new BasicMinMaxPlayer(1,5);
+        Player p1 = new BasicMinMaxPlayer(1,3);
 //        Player p2 = new HeuristicMinMaxPlayer(1,5);
-        Player p2 = new RandomPlayer(2);
+//        Player p2 = new RandomPlayer(2);
+        Player p2 = new BasicMinMaxPlayer(2,3);
         int p1C = 0;
         int p2C = 0;
-        for (int i = 1; i < 101; i++) {
+        Date start = new Date();
+        for (int i = 1; i < 51; i++) {
             UTTTGame game = new UTTTGame(p1, p2);
             boolean gameOver = false;
 //        int count = 0;
@@ -38,7 +42,9 @@ public class AIvsAITest {
                 p2C++;
             }
         }
+        Date end = new Date();
         System.out.println("Player 1 wins: "+p1C);
         System.out.println("Player 2 wins: "+p2C);
+        System.out.println("Time taken for simulation: "+ (end.getTime()-start.getTime()));
     }
 }
