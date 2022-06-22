@@ -2,6 +2,9 @@ package UTTT.Board;
 
 import java.util.ArrayList;
 
+/**
+ * What is activeSlot = -1?
+ */
 public class MainBoard extends Board {
     private NineSlotBoard[] slots;
     private int activeSlot;
@@ -74,16 +77,25 @@ public class MainBoard extends Board {
         // Add caching system!!!!!!!!!!!!!!!!!!!!!!!!
         for (int i = 0; i < 3; i++) {
             int mult = i*3;
-            if (this.slots[mult].findBoardWinner() != 0 && this.slots[mult].findBoardWinner() == this.slots[mult+1].findBoardWinner() && this.slots[mult+1].findBoardWinner() == this.slots[mult+2].findBoardWinner())
-                return slots[mult].findBoardWinner();
-            if (this.slots[i].findBoardWinner() != 0 && slots[i].findBoardWinner() == this.slots[i+3].findBoardWinner() && this.slots[i+3].findBoardWinner() == this.slots[i+6].findBoardWinner())
-                return slots[i].findBoardWinner();
+            if (this.slots[mult].findBoardWinner() != 0 && this.slots[mult].findBoardWinner() == this.slots[mult+1].findBoardWinner() && this.slots[mult+1].findBoardWinner() == this.slots[mult+2].findBoardWinner()) {
+                this.winner = slots[mult].findBoardWinner();
+                return this.winner;
+            }
+            if (this.slots[i].findBoardWinner() != 0 && slots[i].findBoardWinner() == this.slots[i+3].findBoardWinner() && this.slots[i+3].findBoardWinner() == this.slots[i+6].findBoardWinner()) {
+                this.winner = slots[i].findBoardWinner();
+                return this.winner;
+            }
         }
-        if (this.slots[4].findBoardWinner() != 0) {
-            if (this.slots[0].findBoardWinner() == this.slots[4].findBoardWinner() && this.slots[4].findBoardWinner() == this.slots[8].findBoardWinner())
-                return slots[0].findBoardWinner();
-            if (this.slots[2].findBoardWinner() == this.slots[4].findBoardWinner() && this.slots[4].findBoardWinner() == this.slots[6].findBoardWinner())
-                return this.slots[0].findBoardWinner();
+        int middleSlot = this.slots[4].findBoardWinner();
+        if (middleSlot != 0) {
+            if (this.slots[0].findBoardWinner() == middleSlot && middleSlot == this.slots[8].findBoardWinner()) {
+                this.winner = middleSlot;
+                return this.winner;
+            }
+            if (this.slots[2].findBoardWinner() == middleSlot && middleSlot == this.slots[6].findBoardWinner()) {
+                this.winner = middleSlot;
+                return this.winner;
+            }
         }
         return 0;
     }
@@ -118,6 +130,10 @@ public class MainBoard extends Board {
         return result;
     }
 
+    /**
+     * TODO: Possibly handle ties with moves still available
+     * @return
+     */
     @Override
     public boolean isBoardComplete() {
         if (this.findBoardWinner() != 0)
