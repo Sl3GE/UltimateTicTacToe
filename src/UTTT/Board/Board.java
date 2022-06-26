@@ -26,6 +26,8 @@ public abstract class Board {
         return this.winner;
     }
 
+    public String getBoardType() { return this.boardType; }
+
     public void setWinner(int wpc) {
         this.winner = wpc;
     }

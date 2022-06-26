@@ -7,10 +7,9 @@ import UTTT.UTTTGame;
 
 public class UltimateTTTTest {
     public static void main(String[] args) {
-//        Player p1 = new BasicPlayer(1);
-        Player p1 = new BasicMinMaxPlayer(1,7);
-        Player p2 = new RandomPlayer(2);
-//        Player p2 = new STDInputPlayer(2);
+        Player p1 = new BasicMinMaxPlayer(7);
+        Player p2 = new RandomPlayer();
+//        Player p2 = new STDInputPlayer();
         UTTTGame game = new UTTTGame(p1,p2);
 //        game.display();
         boolean gameOver = false;

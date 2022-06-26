@@ -7,9 +7,8 @@ import java.util.Random;
 
 public class RandomPlayer extends Player {
 
-    public RandomPlayer(int pc) {
-        super(pc);
-        this.playerType = "RandomPlayer";
+    public RandomPlayer() {
+        super("RandomPlayer");
     }
 
     public int[] getMove(Board board) {

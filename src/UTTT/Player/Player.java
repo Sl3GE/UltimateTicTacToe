@@ -6,12 +6,15 @@ import java.util.Objects;
 
 public abstract class Player {
 
+    static int playerCount = 0;
+
     protected int playerCode;
     protected String name;
     protected String playerType;
 
-    public Player(int pc) {
-        this.playerCode = pc;
+    public Player(String playerType) {
+        this.playerCode = ++playerCount;
+        this.playerType = playerType;
     }
 
     public int getPlayerCode() {

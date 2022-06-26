@@ -9,8 +9,8 @@ import java.util.Date;
 
 public class GameSimulatorTest {
     public static void main(String[] args) {
-        Player p1 = new BasicMinMaxPlayer(1,3);
-        Player p2 = new BasicMinMaxPlayer(2,3);
+        Player p1 = new BasicMinMaxPlayer(3);
+        Player p2 = new BasicMinMaxPlayer(3);
         Date start = new Date();
         for (int i = 0; i < 40; i++) {
             GameSimulator gameSimulator1 = new GameSimulator(p1, p2, new UTTTGame(p1, p2));

@@ -10,9 +10,8 @@ abstract class MinMaxPlayer extends Player {
 
     private int minMaxDepth;
 
-    public MinMaxPlayer(int pc, int mmDepth) {
-        super(pc);
-        this.playerType = "MinMaxPlayer";
+    public MinMaxPlayer(int mmDepth, String playerType) {
+        super(playerType);
         this.minMaxDepth = mmDepth > 0 ? mmDepth : 1;
     }
 
@@ -31,7 +30,7 @@ abstract class MinMaxPlayer extends Player {
             newBoard.updateSlot(move,this.getPlayerCode());
             MoveValueCombo mvc = new MoveValueCombo(move,0.0);
             if (depth == 1) {
-                mvc.setValue(evaluateBoard(newBoard));
+                mvc.setValue(evaluateBoard(newBoard, true));
             } else {
                 mvc.setValue(this.min(newBoard, depth - 1).getValue());
             }
@@ -55,7 +54,7 @@ abstract class MinMaxPlayer extends Player {
             newBoard.updateSlot(move,this.getPlayerCode());
             MoveValueCombo mvc = new MoveValueCombo(move,0.0);
             if (depth == 1) {
-                mvc.setValue(evaluateBoard(newBoard));
+                mvc.setValue(evaluateBoard(newBoard, false));
             } else {
                 mvc.setValue(this.max(newBoard, depth - 1).getValue());
             }
@@ -68,5 +67,5 @@ abstract class MinMaxPlayer extends Player {
         return minMVC;
     }
 
-    public abstract Double evaluateBoard(Board board);
+    public abstract Double evaluateBoard(Board board, Boolean thisPlayersTurn);
 }

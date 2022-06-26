@@ -8,10 +8,9 @@ import UTTT.TTTGame;
 
 public class NormalTTTTest {
     public static void main(String[] args) {
-//        Player p1 = new BasicPlayer(1);
-        Player p1 = new BasicMinMaxPlayer(1,5);
-        Player p2 = new RandomPlayer(2);
-        TTTGame game = new TTTGame(p1,p2);
+        Player p1 = new BasicMinMaxPlayer(5);
+        Player p2 = new RandomPlayer();
+        TTTGame game = new TTTGame(p1, p2);
         boolean gameOver = false;
         while (!gameOver) {
             game.nextMove();

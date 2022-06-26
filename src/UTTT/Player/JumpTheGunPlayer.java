@@ -6,9 +6,8 @@ import java.util.ArrayList;
 
 public class JumpTheGunPlayer extends Player {
 
-    public JumpTheGunPlayer(int pc) {
-        super(pc);
-        this.playerType = "BasicPlayer";
+    public JumpTheGunPlayer() {
+        super("JumpTheGunPlayer");
     }
 
     @Override

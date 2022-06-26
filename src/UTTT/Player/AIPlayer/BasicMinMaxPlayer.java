@@ -3,12 +3,12 @@ package UTTT.Player.AIPlayer;
 import UTTT.Board.Board;
 
 public class BasicMinMaxPlayer extends MinMaxPlayer {
-    public BasicMinMaxPlayer(int pc, int mmDepth) {
-        super(pc, mmDepth);
+    public BasicMinMaxPlayer(int mmDepth) {
+        super(mmDepth, "BasicMinMaxPlayer");
     }
 
     @Override
-    public Double evaluateBoard(Board board)  {
+    public Double evaluateBoard(Board board, Boolean thisPlayersTurn)  {
         int winner = board.findBoardWinner();
         if (winner == this.playerCode)
             return infinity;
