@@ -19,10 +19,6 @@ abstract class MinMaxPlayer extends Player {
     @Override
     public int[] getMove(Board board) {
         int[] move = this.max(board.deepCopy(),this.minMaxDepth).getMove();
-        if (move == null) {
-            System.out.println(Arrays.toString(new Throwable().getStackTrace()));
-            System.exit(1);
-        }
         return move;
     }
 
