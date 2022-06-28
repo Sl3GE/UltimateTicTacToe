@@ -23,7 +23,7 @@ abstract class MinMaxPlayer extends Player {
     private MoveValueCombo max(Board board, int depth) {
         ArrayList<int[]> moves = board.getAvailableMoves();
         int moveCount = moves.size();
-        MoveValueCombo maxMVC = new MoveValueCombo(null,0.0);
+        MoveValueCombo maxMVC = new MoveValueCombo(null,null);
         for (int i = 0; i < moveCount; i++) {
             Board newBoard = board.deepCopy();
             int[] move = moves.get(i);
@@ -47,7 +47,7 @@ abstract class MinMaxPlayer extends Player {
     private MoveValueCombo min(Board board, int depth) {
         ArrayList<int[]> moves = board.getAvailableMoves();
         int moveCount = moves.size();
-        MoveValueCombo minMVC = new MoveValueCombo(null,0.0);
+        MoveValueCombo minMVC = new MoveValueCombo(null,null);
         for (int i = 0; i < moveCount; i++) {
             Board newBoard = board.deepCopy();
             int[] move = moves.get(i);
