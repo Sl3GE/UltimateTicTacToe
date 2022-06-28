@@ -8,7 +8,7 @@ import java.util.ArrayList;
 abstract class MinMaxPlayer extends Player {
     protected static Double infinity = 1000.0;
 
-    private int minMaxDepth;
+    private final int minMaxDepth;
 
     public MinMaxPlayer(int mmDepth, String playerType) {
         super(playerType);
@@ -22,19 +22,17 @@ abstract class MinMaxPlayer extends Player {
 
     private MoveValueCombo max(Board board, int depth) {
         ArrayList<int[]> moves = board.getAvailableMoves();
-        int moveCount = moves.size();
         MoveValueCombo maxMVC = new MoveValueCombo(null,null);
-        for (int i = 0; i < moveCount; i++) {
+        for (int[] move : moves) {
             Board newBoard = board.deepCopy();
-            int[] move = moves.get(i);
-            newBoard.updateSlot(move,this.getPlayerCode());
-            MoveValueCombo mvc = new MoveValueCombo(move,0.0);
+            newBoard.updateSlot(move, this.getPlayerCode());
+            MoveValueCombo mvc = new MoveValueCombo(move, 0.0);
             if (depth == 1) {
                 mvc.setValue(evaluateBoard(newBoard, true));
             } else {
                 mvc.setValue(this.min(newBoard, depth - 1).getValue());
             }
-            if (mvc.getValue() == infinity) {
+            if (mvc.getValue().equals(infinity)) {
                 return mvc;
             }
             if (mvc.isGreaterThan(maxMVC))
@@ -46,19 +44,17 @@ abstract class MinMaxPlayer extends Player {
     // TODO: Add Alpha Beta Pruning
     private MoveValueCombo min(Board board, int depth) {
         ArrayList<int[]> moves = board.getAvailableMoves();
-        int moveCount = moves.size();
         MoveValueCombo minMVC = new MoveValueCombo(null,null);
-        for (int i = 0; i < moveCount; i++) {
+        for (int[] move : moves) {
             Board newBoard = board.deepCopy();
-            int[] move = moves.get(i);
-            newBoard.updateSlot(move,this.getPlayerCode());
-            MoveValueCombo mvc = new MoveValueCombo(move,0.0);
+            newBoard.updateSlot(move, this.getPlayerCode());
+            MoveValueCombo mvc = new MoveValueCombo(move, 0.0);
             if (depth == 1) {
                 mvc.setValue(evaluateBoard(newBoard, false));
             } else {
                 mvc.setValue(this.max(newBoard, depth - 1).getValue());
             }
-            if (mvc.getValue() == -infinity) {
+            if (mvc.getValue().equals(-infinity)) {
                 return mvc;
             }
             if (minMVC.isGreaterThan(mvc))
