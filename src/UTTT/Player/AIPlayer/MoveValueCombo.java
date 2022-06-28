@@ -34,4 +34,14 @@ public class MoveValueCombo {
         }
         return this.getValue() >= mvc2.getValue();
     }
+
+    public boolean isLessThan(MoveValueCombo mvc2) {
+        if (mvc2.getValue() == null) {
+            return true;
+        }
+        if (this.getValue() == null) {
+            return false;
+        }
+        return this.getValue() <= mvc2.getValue();
+    }
 }

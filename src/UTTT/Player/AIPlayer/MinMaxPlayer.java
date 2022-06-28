@@ -4,6 +4,7 @@ import UTTT.Board.Board;
 import UTTT.Player.Player;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 abstract class MinMaxPlayer extends Player {
     protected static Double infinity = 1000.0;
@@ -17,7 +18,12 @@ abstract class MinMaxPlayer extends Player {
 
     @Override
     public int[] getMove(Board board) {
-        return this.max(board.deepCopy(),this.minMaxDepth).getMove();
+        int[] move = this.max(board.deepCopy(),this.minMaxDepth).getMove();
+        if (move == null) {
+            System.out.println(Arrays.toString(new Throwable().getStackTrace()));
+            System.exit(1);
+        }
+        return move;
     }
 
     private MoveValueCombo max(Board board, int depth) {
@@ -32,7 +38,8 @@ abstract class MinMaxPlayer extends Player {
             } else {
                 mvc.setValue(this.min(newBoard, depth - 1).getValue());
             }
-            if (mvc.getValue().equals(infinity)) {
+            Double moveValue = mvc.getValue();
+            if (moveValue != null && moveValue.equals(infinity)) {
                 return mvc;
             }
             if (mvc.isGreaterThan(maxMVC))
@@ -54,10 +61,11 @@ abstract class MinMaxPlayer extends Player {
             } else {
                 mvc.setValue(this.max(newBoard, depth - 1).getValue());
             }
-            if (mvc.getValue().equals(-infinity)) {
+            Double moveValue = mvc.getValue();
+            if (moveValue != null && moveValue.equals(-infinity)) {
                 return mvc;
             }
-            if (minMVC.isGreaterThan(mvc))
+            if (mvc.isLessThan(minMVC))
                 minMVC = mvc;
         }
         return minMVC;

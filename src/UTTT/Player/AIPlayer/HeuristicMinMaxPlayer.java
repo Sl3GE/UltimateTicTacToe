@@ -23,10 +23,8 @@ public class HeuristicMinMaxPlayer extends MinMaxPlayer {
          * 3. (Should) genetic evolution to determine good co-efficients
          * 2. (hard maybe) neural-network combined with genetic evolution to find best formula
          */
-//        Double mainBoardNextMoveWinCount = this.getMainBoardNextMoveWinCount(board, thisPlayersTurn) - this.getMainBoardNextMoveWinCount(board, !thisPlayersTurn);
-//        Double innerBoardNextMoveWinCount = this.getInnerBoardNextMoveWinCount(board, thisPlayersTurn) - this.getInnerBoardNextMoveWinCount(board, !thisPlayersTurn);
-        Double mainBoardNextMoveWinCount = this.getMainBoardNextMoveWinCount(board, thisPlayersTurn);
-        Double innerBoardNextMoveWinCount = this.getInnerBoardNextMoveWinCount(board, thisPlayersTurn);
+        Double mainBoardNextMoveWinCount = this.getMainBoardNextMoveWinCount(board, thisPlayersTurn) - (2 * this.getMainBoardNextMoveWinCount(board, !thisPlayersTurn));
+        Double innerBoardNextMoveWinCount = this.getInnerBoardNextMoveWinCount(board, thisPlayersTurn) - this.getInnerBoardNextMoveWinCount(board, !thisPlayersTurn);
         return (3*this.slotWinDifferential(board)) + (2 * mainBoardNextMoveWinCount) + innerBoardNextMoveWinCount;
     }
 
@@ -58,9 +56,6 @@ public class HeuristicMinMaxPlayer extends MinMaxPlayer {
         2. count how many pairs of twos with a third empty slot exist for each player.
         3. some kind of heuristic to control the active slot for your next move (based on multi-board depth understanding)
      */
-
-    //    2. count how many pairs of twos with a third empty slot exist for each player.
-    //          - on the highest-level (main) board
 
     private Double getInnerBoardNextMoveWinCount(Board board, Boolean thisPlayersTurn) {
         Double count = 0.0;
