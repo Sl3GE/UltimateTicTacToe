@@ -6,9 +6,8 @@ import java.util.Scanner;
 
 public class STDInputPlayer extends Player {
 
-    public STDInputPlayer(int pc) {
-        super(pc);
-        this.playerType = "STDInputPlayer";
+    public STDInputPlayer() {
+        super("STDInputPlayer");
     }
 
     @Override

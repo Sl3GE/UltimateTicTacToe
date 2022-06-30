@@ -4,11 +4,10 @@ import UTTT.Board.Board;
 
 import java.util.ArrayList;
 
-public class BasicPlayer extends Player {
+public class JumpTheGunPlayer extends Player {
 
-    public BasicPlayer(int pc) {
-        super(pc);
-        this.playerType = "BasicPlayer";
+    public JumpTheGunPlayer() {
+        super("JumpTheGunPlayer");
     }
 
     @Override
