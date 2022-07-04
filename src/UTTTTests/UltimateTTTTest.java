@@ -1,6 +1,6 @@
 package UTTTTests;
 
-import UTTT.Player.AIPlayer.BasicMinMaxPlayer;
+import UTTT.Player.AI.BasicMinMaxPlayer;
 import UTTT.Player.Player;
 import UTTT.Player.RandomPlayer;
 import UTTT.UTTTGame;

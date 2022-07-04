@@ -1,7 +1,7 @@
 package UTTTTests;
 
 import UTTT.GameSimulator;
-import UTTT.Player.AIPlayer.BasicMinMaxPlayer;
+import UTTT.Player.AI.BasicMinMaxPlayer;
 import UTTT.Player.Player;
 import UTTT.UTTTGame;
 
