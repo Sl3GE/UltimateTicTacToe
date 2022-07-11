@@ -81,6 +81,13 @@ public class GeneticCode {
         return new GeneticCode(newGenes,higherGeneCount);
     }
 
+    @Override
+    public String toString() {
+        return "GeneticCode{" +
+                "genes=" + genes +
+                '}';
+    }
+
     public GeneticCode deepCopy() {
         return new GeneticCode((ArrayList<Double>) genes.clone());
     }

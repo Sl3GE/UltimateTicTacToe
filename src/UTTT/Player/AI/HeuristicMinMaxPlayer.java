@@ -6,7 +6,10 @@ import UTTT.Board.NineSlotBoard;
 
 public class HeuristicMinMaxPlayer extends MinMaxPlayer {
     public HeuristicMinMaxPlayer(int mmDepth) {
-        super(mmDepth, "HeuristicMinMaxPlayer");
+        this(mmDepth, "HeuristicMinMaxPlayer");
+    }
+    public HeuristicMinMaxPlayer(int mmDepth, String playerType) {
+        super(mmDepth, playerType);
     }
 
     @Override
@@ -28,7 +31,7 @@ public class HeuristicMinMaxPlayer extends MinMaxPlayer {
         return (3*this.slotWinDifferential(board)) + (2 * mainBoardNextMoveWinCount) + innerBoardNextMoveWinCount;
     }
 
-    private Double slotWinDifferential(Board board) {
+    protected Double slotWinDifferential(Board board) {
         Double differential = 0.0;
         if (board.getBoardType().equals("NineSlotBoard")) {
             for (int slot : ((NineSlotBoard) board).getSlots()) {
@@ -57,7 +60,7 @@ public class HeuristicMinMaxPlayer extends MinMaxPlayer {
         3. some kind of heuristic to control the active slot for your next move (based on multi-board depth understanding)
      */
 
-    private Double getInnerBoardNextMoveWinCount(Board board, Boolean thisPlayersTurn) {
+    protected Double getInnerBoardNextMoveWinCount(Board board, Boolean thisPlayersTurn) {
         Double count = 0.0;
         for (NineSlotBoard nineSlotBoard : ((MainBoard) board).getSlots()) {
             count += this.getMainBoardNextMoveWinCount(nineSlotBoard,thisPlayersTurn);
@@ -65,7 +68,7 @@ public class HeuristicMinMaxPlayer extends MinMaxPlayer {
         return count;
     }
 
-    private Double getMainBoardNextMoveWinCount(Board board, Boolean thisPlayersTurn) {
+    protected Double getMainBoardNextMoveWinCount(Board board, Boolean thisPlayersTurn) {
         int[] slots;
         if (board.getBoardType().equals("NineSlotBoard")) {
             slots = ((NineSlotBoard) board).getSlots();
