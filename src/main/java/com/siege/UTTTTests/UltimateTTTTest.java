@@ -1,9 +1,9 @@
-package UTTTTests;
+package com.siege.UTTTTests;
 
-import UTTT.Player.AIPlayer.BasicMinMaxPlayer;
-import UTTT.Player.Player;
-import UTTT.Player.RandomPlayer;
-import UTTT.UTTTGame;
+import com.siege.UTTT.Player.AIPlayer.BasicMinMaxPlayer;
+import com.siege.UTTT.Player.Player;
+import com.siege.UTTT.Player.RandomPlayer;
+import com.siege.UTTT.UTTTGame;
 
 public class UltimateTTTTest {
     public static void main(String[] args) {

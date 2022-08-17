@@ -1,10 +1,9 @@
-package UTTT.Player.AIPlayer;
+package com.siege.UTTT.Player.AIPlayer;
 
-import UTTT.Board.Board;
-import UTTT.Player.Player;
+import com.siege.UTTT.Board.Board;
+import com.siege.UTTT.Player.Player;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 abstract class MinMaxPlayer extends Player {
     protected static Double infinity = 1000.0;

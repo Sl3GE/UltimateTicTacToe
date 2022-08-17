@@ -1,6 +1,6 @@
-package UTTT.Player.AIPlayer;
+package com.siege.UTTT.Player.AIPlayer;
 
-import UTTT.Board.Board;
+import com.siege.UTTT.Board.Board;
 
 public class BasicMinMaxPlayer extends MinMaxPlayer {
     public BasicMinMaxPlayer(int mmDepth) {
