@@ -1,6 +1,7 @@
 package UTTTTests;
 
 import UTTT.Player.AI.BasicMinMaxPlayer;
+import UTTT.Player.AI.Genetics.GeneticHeuristicMinMaxPlayer;
 import UTTT.Player.AI.HeuristicMinMaxPlayer;
 import UTTT.Player.Player;
 import UTTT.UTTTGame;
@@ -10,7 +11,7 @@ import java.util.Date;
 public class AIvsAITest {
 
     public static void main(String[] args) {
-        Player p1 = new BasicMinMaxPlayer(3);
+        Player p1 = new GeneticHeuristicMinMaxPlayer(3);
         Player p2 = new HeuristicMinMaxPlayer(3);
         int p1C = 0;
         int p2C = 0;

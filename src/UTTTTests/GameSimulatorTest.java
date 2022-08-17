@@ -27,19 +27,20 @@ public class GameSimulatorTest {
             } catch (Exception e) {
                 // bla bla
             }
+
             // Second way:
-            gameSimulator1.start();
-            try {
-                gameSimulator1.join();
-            } catch (Exception e) {
-                // bla bla
-            }
-            gameSimulator2.start();
-            try {
-                gameSimulator2.join();
-            } catch (Exception e) {
-                // bla bla
-            }
+//            gameSimulator1.start();
+//            try {
+//                gameSimulator1.join();
+//            } catch (Exception e) {
+//                // bla bla
+//            }
+//            gameSimulator2.start();
+//            try {
+//                gameSimulator2.join();
+//            } catch (Exception e) {
+//                // bla bla
+//            }
         }
         Date end = new Date();
         System.out.println("Time taken for simulation: "+ (end.getTime()-start.getTime()));

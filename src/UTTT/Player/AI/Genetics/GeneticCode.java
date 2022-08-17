@@ -12,8 +12,9 @@ public class GeneticCode {
         genes = new ArrayList<>();
     }
 
+    // Constructors
     public GeneticCode(int geneCount) {
-        genes = new ArrayList<>(geneCount);
+        this.genes = new ArrayList<>(geneCount);
         this.geneCount = geneCount;
     }
 
@@ -21,10 +22,11 @@ public class GeneticCode {
         this(collection, collection.size());
     }
 
-    public GeneticCode(Collection<? extends Double> collection, int collectionSize) {
-        genes = new ArrayList<>(collection);
-        geneCount = collectionSize;
+    public GeneticCode(Collection<? extends Double> genes, int collectionSize) {
+        this.genes = new ArrayList<>(genes);
+        this.geneCount = collectionSize;
     }
+    // End of Constructors
 
     public ArrayList<Double> getGenes() {
         return genes;
@@ -44,7 +46,7 @@ public class GeneticCode {
         Random random = new Random();
         for (int i = 0; i < amount; i++) {
             double randomDouble = random.nextDouble() * (upperBound - lowerBound) + lowerBound;
-            genes.set(i,randomDouble);
+            genes.add(i,randomDouble);
         }
     }
 

@@ -6,7 +6,9 @@ import UTTT.Player.Player;
 import java.util.ArrayList;
 
 abstract class MinMaxPlayer extends Player {
-    protected static Double infinity = 1000.0;
+
+    public static final int defaultPlayerComplexityDepth = 1;
+    protected static final Double infinity = 1000.0;
 
     private final int minMaxDepth;
 

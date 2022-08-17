@@ -4,6 +4,9 @@ import UTTT.Board.Board;
 import UTTT.Player.AI.HeuristicMinMaxPlayer;
 
 public class GeneticHeuristicMinMaxPlayer extends HeuristicMinMaxPlayer {
+
+//    public static final int defaultPlayerComplexityDepth = 1;
+
     private GeneticCode geneticCode;
 
 
