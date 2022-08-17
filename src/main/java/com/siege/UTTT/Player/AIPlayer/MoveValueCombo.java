@@ -1,4 +1,4 @@
-package UTTT.Player.AIPlayer;
+package com.siege.UTTT.Player.AIPlayer;
 
 public class MoveValueCombo {
     private int[] move;

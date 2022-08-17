@@ -1,7 +1,7 @@
-package UTTT;
+package com.siege.UTTT;
 
-import UTTT.Board.MainBoard;
-import UTTT.Player.Player;
+import com.siege.UTTT.Board.MainBoard;
+import com.siege.UTTT.Player.Player;
 
 public class UTTTGame extends TTTGame {
 
