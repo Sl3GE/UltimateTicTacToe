@@ -1,7 +1,7 @@
-package UTTT.Player.AI.Genetics;
+package main.java.com.siege.UTTT.Player.AIPlayer.Genetics;
 
-import UTTT.Board.Board;
-import UTTT.Player.AI.HeuristicMinMaxPlayer;
+import main.java.com.siege.UTTT.Board.Board;
+import main.java.com.siege.UTTT.Player.AIPlayer.HeuristicMinMaxPlayer;
 
 public class GeneticHeuristicMinMaxPlayer extends HeuristicMinMaxPlayer {
 

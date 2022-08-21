@@ -1,9 +1,9 @@
-package UTTTTests;
+package main.java.com.siege.UTTTTests;
 
-import UTTT.GameSimulator;
-import UTTT.Player.AI.BasicMinMaxPlayer;
-import UTTT.Player.Player;
-import UTTT.UTTTGame;
+import main.java.com.siege.UTTT.GameSimulator;
+import main.java.com.siege.UTTT.Player.AIPlayer.BasicMinMaxPlayer;
+import main.java.com.siege.UTTT.Player.Player;
+import main.java.com.siege.UTTT.UTTTGame;
 
 import java.util.Date;
 

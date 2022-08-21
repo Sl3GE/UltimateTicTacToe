@@ -1,7 +1,7 @@
-package UTTT.Player.AI;
+package main.java.com.siege.UTTT.Player.AIPlayer;
 
-import UTTT.Board.Board;
-import UTTT.Player.Player;
+import main.java.com.siege.UTTT.Board.Board;
+import main.java.com.siege.UTTT.Player.Player;
 
 import java.util.ArrayList;
 

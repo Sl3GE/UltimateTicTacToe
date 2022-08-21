@@ -1,6 +1,6 @@
-package UTTT;
+package main.java.com.siege.UTTT;
 
-import UTTT.Player.Player;
+import main.java.com.siege.UTTT.Player.Player;
 
 public class GameSimulator extends Thread {
 

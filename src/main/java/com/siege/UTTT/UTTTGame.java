@@ -1,7 +1,7 @@
-package UTTT;
+package main.java.com.siege.UTTT;
 
-import UTTT.Board.MainBoard;
-import UTTT.Player.Player;
+import main.java.com.siege.UTTT.Board.MainBoard;
+import main.java.com.siege.UTTT.Player.Player;
 
 public class UTTTGame extends TTTGame {
 

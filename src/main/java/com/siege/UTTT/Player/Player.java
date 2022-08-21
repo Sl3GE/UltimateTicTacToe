@@ -1,6 +1,6 @@
-package UTTT.Player;
+package main.java.com.siege.UTTT.Player;
 
-import UTTT.Board.Board;
+import main.java.com.siege.UTTT.Board.Board;
 
 import java.util.Objects;
 

@@ -1,8 +1,8 @@
-package UTTT.Player.AI;
+package main.java.com.siege.UTTT.Player.AIPlayer;
 
-import UTTT.Board.Board;
-import UTTT.Board.MainBoard;
-import UTTT.Board.NineSlotBoard;
+import main.java.com.siege.UTTT.Board.Board;
+import main.java.com.siege.UTTT.Board.MainBoard;
+import main.java.com.siege.UTTT.Board.NineSlotBoard;
 
 public class HeuristicMinMaxPlayer extends MinMaxPlayer {
     public HeuristicMinMaxPlayer(int mmDepth) {
