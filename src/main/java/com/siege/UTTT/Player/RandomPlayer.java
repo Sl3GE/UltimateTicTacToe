@@ -1,6 +1,6 @@
-package main.java.com.siege.UTTT.Player;
+package com.siege.UTTT.Player;
 
-import main.java.com.siege.UTTT.Board.Board;
+import com.siege.UTTT.Board.Board;
 
 import java.util.ArrayList;
 import java.util.Random;

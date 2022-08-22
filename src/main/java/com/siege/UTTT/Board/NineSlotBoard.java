@@ -1,4 +1,4 @@
-package main.java.com.siege.UTTT.Board;
+package com.siege.UTTT.Board;
 
 import java.util.ArrayList;
 

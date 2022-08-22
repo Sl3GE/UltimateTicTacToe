@@ -1,9 +1,10 @@
-package main.java.com.siege.UTTTTests;
+package com.siege.UTTTTests;
 
-import main.java.com.siege.UTTT.Player.AIPlayer.Genetics.GeneticHeuristicMinMaxPlayer;
-import main.java.com.siege.UTTT.Player.AIPlayer.HeuristicMinMaxPlayer;
-import main.java.com.siege.UTTT.Player.Player;
-import main.java.com.siege.UTTT.UTTTGame;
+import com.siege.UTTT.Player.AIPlayer.BasicMinMaxPlayer;
+import com.siege.UTTT.Player.AIPlayer.HeuristicMinMaxPlayer;
+import com.siege.UTTT.Player.AIPlayer.Genetics.GeneticHeuristicMinMaxPlayer;
+import com.siege.UTTT.Player.Player;
+import com.siege.UTTT.UTTTGame;
 
 import java.util.Date;
 

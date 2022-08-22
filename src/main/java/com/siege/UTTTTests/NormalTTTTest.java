@@ -1,9 +1,9 @@
-package main.java.com.siege.UTTTTests;
+package com.siege.UTTTTests;
 
-import main.java.com.siege.UTTT.Player.AIPlayer.BasicMinMaxPlayer;
-import main.java.com.siege.UTTT.Player.Player;
-import main.java.com.siege.UTTT.Player.RandomPlayer;
-import main.java.com.siege.UTTT.TTTGame;
+import com.siege.UTTT.Player.AIPlayer.BasicMinMaxPlayer;
+import com.siege.UTTT.Player.Player;
+import com.siege.UTTT.Player.RandomPlayer;
+import com.siege.UTTT.TTTGame;
 
 public class NormalTTTTest {
     public static void main(String[] args) {

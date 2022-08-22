@@ -1,8 +1,8 @@
-package main.java.com.siege.UTTT;
+package com.siege.UTTT;
 
-import main.java.com.siege.UTTT.Board.Board;
-import main.java.com.siege.UTTT.Board.NineSlotBoard;
-import main.java.com.siege.UTTT.Player.Player;
+import com.siege.UTTT.Board.Board;
+import com.siege.UTTT.Board.NineSlotBoard;
+import com.siege.UTTT.Player.Player;
 
 public class TTTGame {
     protected Board board;

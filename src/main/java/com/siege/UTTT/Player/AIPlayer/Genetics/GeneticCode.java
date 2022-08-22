@@ -1,4 +1,4 @@
-package main.java.com.siege.UTTT.Player.AIPlayer.Genetics;
+package com.siege.UTTT.Player.AIPlayer.Genetics;
 
 import java.util.ArrayList;
 import java.util.Collection;
